@@ -15,10 +15,10 @@ Also the cache, fallbacks and timeouts help to spend less time on successive req
 
 ### First run (cache empty)
 
-![](src/main/resources/Graphic 1.png)
-![](src/main/resources/Graphic 2.png)
+![alt text](https://github.com/Albornozluciano/tech-challenge/blob/main/app/src/main/resources/Graphic%201.png)
+![alt text](https://github.com/Albornozluciano/tech-challenge/blob/main/app/src/main/resources/Graphic%202.png)
 
 ### Second run (cached info)
 
-![](src/main/resources/Graphic 3.png)
-![](src/main/resources/Graphic 4.png)
+![alt text](https://github.com/Albornozluciano/tech-challenge/blob/main/app/src/main/resources/Graphic%203.png)
+![alt text](https://github.com/Albornozluciano/tech-challenge/blob/main/app/src/main/resources/Graphic%204.png)
