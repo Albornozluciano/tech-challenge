@@ -1,0 +1,34 @@
+package com.tech.challenge.clients.rest.implementations;
+
+import com.tech.challenge.clients.rest.ProductsDetailAPIClient;
+import com.tech.challenge.dtos.SimilarProductsDetailed;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
+import java.time.Duration;
+
+@Slf4j
+@Component
+public class ProductsDetailAPIClientImpl implements ProductsDetailAPIClient {
+    private final WebClient webClient;
+
+    @Autowired
+    public ProductsDetailAPIClientImpl(WebClient webClient) {
+        this.webClient = webClient;
+    }
+
+    private final static String HOST = "http://localhost:3001";
+    private final static String PRODUCT_ID_PATH_PARAM = "{{productId}}";
+    private final static String URI = HOST + "/product/" + PRODUCT_ID_PATH_PARAM;
+    private final static Integer TIMEOUT = 5;
+
+    public Mono<SimilarProductsDetailed> getDetailsById(String productId) {
+        return webClient.get()
+            .uri(URI.replace(PRODUCT_ID_PATH_PARAM, productId))
+            .retrieve()
+            .bodyToMono(SimilarProductsDetailed.class)
+            .timeout(Duration.ofSeconds(TIMEOUT));
+    }
+}
